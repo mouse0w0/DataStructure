@@ -73,7 +73,7 @@ Position Find(List L, ElementType X) {
 }
 
 bool Insert(List L, ElementType X, Position P) {
-    if (P < 0 || P >= MAXSIZE) {
+    if (P < 0 || P > L->Last) {
         printf("ILLEGAL POSITION");
         return false;
     }
