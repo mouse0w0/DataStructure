@@ -64,7 +64,8 @@ List MakeEmpty() {
 }
 
 Position Find(List L, ElementType X) {
-    for (int i = 0; i <= L->Last; ++i) {
+    int i;
+    for (i = 0; i <= L->Last; i++) {
         if (L->Data[i] == X) {
             return i;
         }
@@ -73,17 +74,18 @@ Position Find(List L, ElementType X) {
 }
 
 bool Insert(List L, ElementType X, Position P) {
-    if (P < 0 || P > L->Last) {
-        printf("ILLEGAL POSITION");
-        return false;
-    }
-
     if (L->Last == MAXSIZE - 1) {
         printf("FULL");
         return false;
     }
 
-    for (int i = L->Last; i >= P; --i) {
+    if (P < 0 || P > L->Last + 1) {
+        printf("ILLEGAL POSITION");
+        return false;
+    }
+
+    int i;
+    for (i = L->Last; i >= P; i--) {
         L->Data[i + 1] = L->Data[i];
     }
     L->Data[P] = X;
@@ -97,7 +99,8 @@ bool Delete(List L, Position P) {
         return false;
     }
 
-    for (int i = P; i <= L->Last; --i) {
+    int i;
+    for (i = P; i < L->Last; i++) {
         L->Data[i] = L->Data[i + 1];
     }
     L->Last--;
