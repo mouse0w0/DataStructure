@@ -3,4 +3,4 @@ project(DataStructure C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(DataStructure 6-4.c)
+add_executable(DataStructure 6-4.c 6-5.c)
