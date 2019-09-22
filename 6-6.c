@@ -17,19 +17,16 @@ int main() {
 }
 
 /* 你的代码将被嵌在这里 */
+#include <string.h>
 
 int Delete(int A[], int L, int minA, int maxA) {
-    int newL = L;
-    int i = 0;
-    while (i < newL) {
-        if (A[i] > minA && A[i] < maxA) {
-            newL--;
-            for (int j = i; j < newL; ++j) {
-                A[j] = A[j + 1];
-            }
-        } else {
-            i++;
+    int NewL = 0;
+    int NewArray[MAXN];
+    for (int i = 0; i < L; i++) {
+        if (A[i] <= minA || A[i] >= maxA) {
+            NewArray[NewL++] = A[i];
         }
     }
-    return newL;
+    memcpy(A, NewArray, sizeof(int) * NewL);
+    return NewL;
 }
