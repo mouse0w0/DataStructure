@@ -26,26 +26,26 @@ int main() {
 
 /* 你的代码将被嵌在这里 */
 List Insert(List L, ElementType X) {
-    if (L == NULL || L->Data > X) {
-        PtrToNode NewNode = malloc(sizeof(PtrToNode));
-        NewNode->Data = X;
-        NewNode->Next = L;
-        return NewNode;
-    }
-    PtrToNode Node = L;
-    while (Node->Next != NULL) {
-        if (Node->Next->Data > X) {
-            PtrToNode NewNode = malloc(sizeof(PtrToNode));
-            NewNode->Data = X;
-            NewNode->Next = Node->Next;
-            Node->Next = NewNode;
-            return L;
-        }
-        Node = Node->Next;
-    }
     PtrToNode NewNode = malloc(sizeof(PtrToNode));
     NewNode->Data = X;
-    NewNode->Next = Node->Next;
+    NewNode->Next = NULL;
+
+    if (L->Next == NULL) {
+        L->Next = NewNode;
+        return L;
+    }
+
+    PtrToNode Node = L;
+    PtrToNode Next = L->Next;
+    while (Next->Data < X) {
+        Node = Next;
+        Next = Next->Next;
+        if (Next->Next == NULL) {
+            Next->Next = NewNode;
+            return L;
+        }
+    }
+    NewNode->Next = Next;
     Node->Next = NewNode;
     return L;
 }
