@@ -112,12 +112,12 @@ bool Delete(List L, Position P) {
     return false;
 }
 
-void Paint(List L) {
+void Print(List L) {
     if (L->Next == NULL) {
         printf("Empty List!\n");
     }
     for (PtrToLNode Node = L->Next; Node != NULL; Node = Node->Next) {
-        printf("%d ");
+        printf("%d ", Node->Data);
     }
     printf("\n");
 }
