@@ -26,7 +26,7 @@ int main() {
 
 /* 你的代码将被嵌在这里 */
 List Insert(List L, ElementType X) {
-    PtrToNode NewNode = malloc(sizeof(PtrToNode));
+    PtrToNode NewNode = malloc(sizeof(struct Node));
     NewNode->Data = X;
     NewNode->Next = NULL;
 

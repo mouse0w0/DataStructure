@@ -87,7 +87,7 @@ bool Insert(List L, ElementType X, Position P) {
     Position Node = L;
     while (Node != NULL) {
         if (Node->Next == P) {
-            PtrToLNode NewNode = malloc(sizeof(PtrToLNode));
+            PtrToLNode NewNode = malloc(sizeof(struct LNode));
             NewNode->Data = X;
             Node->Next = NewNode;
             NewNode->Next = P;

@@ -48,7 +48,7 @@ int main() {
 /* 你的代码将被嵌在这里 */
 
 List MakeEmpty() {
-    List list = malloc(sizeof(List));
+    List list = malloc(sizeof(struct LNode));
     list->Next = NULL;
     return list;
 }
@@ -68,7 +68,7 @@ bool Insert(List L, ElementType X, Position P) {
     Position Node = L;
     while (Node != NULL) {
         if (Node->Next == P) {
-            PtrToLNode NewNode = malloc(sizeof(PtrToLNode));
+            PtrToLNode NewNode = malloc(sizeof(struct LNode));
             NewNode->Data = X;
             Node->Next = NewNode;
             NewNode->Next = P;
