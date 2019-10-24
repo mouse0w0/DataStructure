@@ -14,9 +14,9 @@ typedef Stack *PStack;
 
 PStack InitStack(int size);
 
-bool IsEmpty(PStack stack);
+bool IsEmptyStack(PStack stack);
 
-bool IsFull(PStack stack);
+bool IsFullStack(PStack stack);
 
 bool Push(PStack stack, ElementType value);
 
@@ -43,7 +43,7 @@ bool IsFull(PStack stack) {
 }
 
 bool Push(PStack stack, ElementType value) {
-    if (IsFull(stack)) {
+    if (IsFullStack(stack)) {
         return false;
     }
 
@@ -53,7 +53,7 @@ bool Push(PStack stack, ElementType value) {
 }
 
 bool Pop(PStack stack, ElementType *value) {
-    if (IsEmpty(stack))
+    if (IsEmptyStack(stack))
         return false;
 
     *value = stack->array[stack->top];

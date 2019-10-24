@@ -16,7 +16,7 @@ typedef PtrNode Queue;
 
 Queue InitQueue();
 
-bool IsEmpty(Queue queue);
+bool IsEmptyQueue(Queue queue);
 
 void Enqueue(Queue queue, ElementType value);
 
@@ -32,7 +32,7 @@ Queue InitQueue() {
     return queue;
 }
 
-bool IsEmpty(Queue queue) {
+bool IsEmptyQueue(Queue queue) {
     return queue->next == queue;
 }
 
@@ -44,7 +44,7 @@ void Enqueue(Queue queue, ElementType value) {
 }
 
 bool Dequeue(Queue queue, ElementType *value) {
-    if (IsEmpty(queue)) {
+    if (IsEmptyQueue(queue)) {
         return false;
     }
 
