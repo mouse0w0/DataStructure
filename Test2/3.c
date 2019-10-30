@@ -17,9 +17,9 @@ typedef Stack *PStack;
 
 PStack InitStack(int size);
 
-bool IsEmptyStack(PStack stack);
+bool IsEmpty(PStack stack);
 
-bool IsFullStack(PStack stack);
+bool IsFull(PStack stack);
 
 bool Push(PStack stack, ElementType value);
 
@@ -34,7 +34,7 @@ typedef PtrNode Queue;
 
 Queue InitQueue();
 
-bool IsEmptyQueue(Queue queue);
+bool IsEmpty(Queue queue);
 
 void Enqueue(Queue queue, ElementType value);
 
@@ -92,16 +92,16 @@ PStack InitStack(int size) {
     return stack;
 }
 
-bool IsEmptyStack(PStack stack) {
+bool IsEmpty(PStack stack) {
     return stack->top == -1;
 }
 
-bool IsFullStack(PStack stack) {
+bool IsFull(PStack stack) {
     return stack->top == stack->size - 1;
 }
 
 bool Push(PStack stack, ElementType value) {
-    if (IsFullStack(stack)) {
+    if (IsFull(stack)) {
         return false;
     }
 
@@ -111,7 +111,7 @@ bool Push(PStack stack, ElementType value) {
 }
 
 bool Pop(PStack stack, ElementType *value) {
-    if (IsEmptyStack(stack))
+    if (IsEmpty(stack))
         return false;
 
     *value = stack->array[stack->top];
@@ -125,7 +125,7 @@ Queue InitQueue() {
     return queue;
 }
 
-bool IsEmptyQueue(Queue queue) {
+bool IsEmpty(Queue queue) {
     return queue->next == queue;
 }
 
@@ -137,7 +137,7 @@ void Enqueue(Queue queue, ElementType value) {
 }
 
 bool Dequeue(Queue queue, ElementType *value) {
-    if (IsEmptyQueue(queue)) {
+    if (IsEmpty(queue)) {
         return false;
     }
 
