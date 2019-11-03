@@ -3,4 +3,6 @@ project(DataStructure C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(DataStructure Test2/4.c)
+include_directories(includes)
+
+add_executable(DataStructure String.c Test2/4.c)
