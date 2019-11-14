@@ -18,6 +18,8 @@ int StrCmp(String s1, String s2);
 
 int StrIndex(String s, String t);
 
+int StrIndexWithStart(String s, int start, String t);
+
 void StrInsert(StringRef s, int i, String t);
 
 void StrDelete(StringRef s, int start, int length);

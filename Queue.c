@@ -1,30 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_SIZE 100
-
-typedef enum {
-    false = 0, true = 1
-} bool;
-typedef int ElementType;
-typedef struct Node *PtrNode;
-typedef struct Node {
-    ElementType value;
-    PtrNode next;
-} Node;
-typedef PtrNode Queue;
-
-Queue InitQueue();
-
-bool IsEmptyQueue(Queue queue);
-
-void Enqueue(Queue queue, ElementType value);
-
-bool Dequeue(Queue queue, ElementType *value);
-
-int main() {
-    return 0;
-}
+#include "Queue.h"
 
 Queue InitQueue() {
     Queue queue = malloc(sizeof(Node));
@@ -32,7 +9,7 @@ Queue InitQueue() {
     return queue;
 }
 
-bool IsEmptyQueue(Queue queue) {
+bool IsEmpty(Queue queue) {
     return queue->next == queue;
 }
 
@@ -44,7 +21,7 @@ void Enqueue(Queue queue, ElementType value) {
 }
 
 bool Dequeue(Queue queue, ElementType *value) {
-    if (IsEmptyQueue(queue)) {
+    if (IsEmpty(queue)) {
         return false;
     }
 
