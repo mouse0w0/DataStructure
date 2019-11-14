@@ -11,16 +11,16 @@ PStack InitStack(int size) {
     return stack;
 }
 
-bool IsEmpty(PStack stack) {
+bool IsEmptyStack(PStack stack) {
     return stack->top == -1;
 }
 
-bool IsFull(PStack stack) {
+bool IsFullStack(PStack stack) {
     return stack->top == stack->size - 1;
 }
 
 bool Push(PStack stack, ElementType value) {
-    if (IsFull(stack)) {
+    if (IsFullStack(stack)) {
         return false;
     }
 
@@ -30,7 +30,7 @@ bool Push(PStack stack, ElementType value) {
 }
 
 bool Pop(PStack stack, ElementType *value) {
-    if (IsEmpty(stack))
+    if (IsEmptyStack(stack))
         return false;
 
     *value = stack->array[stack->top];

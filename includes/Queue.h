@@ -16,7 +16,7 @@ typedef PtrNode Queue;
 
 Queue InitQueue();
 
-bool IsEmpty(Queue queue);
+bool IsEmptyQueue(Queue queue);
 
 void Enqueue(Queue queue, ElementType value);
 

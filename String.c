@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "includes/String.h"
+#include "String.h"
 
 String StrCreate(char *value) {
     String s;
@@ -131,10 +131,4 @@ void StrDelete(StringRef ref, int start, int length) {
 
 void StrRep(StringRef ref, String t, String r) {
 
-}
-
-int main() {
-    String s = "Hello World!";
-    StrDelete(&s, 6, 5);
-    printf("%s", s);
 }

@@ -5,4 +5,4 @@ set(CMAKE_C_STANDARD 99)
 
 include_directories(includes)
 
-add_executable(DataStructure String.c Queue.c Stack.c)
+add_executable(DataStructure Queue.c Stack.c Test3/2.c)

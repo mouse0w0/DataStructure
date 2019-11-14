@@ -17,9 +17,9 @@ typedef Stack *PStack;
 
 PStack InitStack(int size);
 
-bool IsEmpty(PStack stack);
+bool IsEmptyStack(PStack stack);
 
-bool IsFull(PStack stack);
+bool IsFullStack(PStack stack);
 
 bool Push(PStack stack, ElementType value);
 
