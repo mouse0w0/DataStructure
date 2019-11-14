@@ -48,7 +48,7 @@ int StrIndex(String s, String t) {
 
 int StrIndexWithStart(String s, int start, String t) {
     int tLength = StrLength(t);
-    int *f = (int *) malloc(tLength * sizeof(int));
+    int *f = malloc(tLength * sizeof(int));
     f[0] = -1;
     int i, j;
     for (j = 1; j < tLength; j++) {
@@ -72,6 +72,7 @@ int StrIndexWithStart(String s, int start, String t) {
         else
             j = f[j - 1] + 1;
     }
+    free(f);
     return j == tLength ? i - tLength : -1;
 }
 
