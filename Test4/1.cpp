@@ -1,6 +1,48 @@
-#include "BiTree.hpp"
-#include <stdio.h>
-#include <stdlib.h>
+//
+// Created by Mouse on 2019/12/11.
+//
+#include <iostream>
+
+using namespace std;
+
+typedef char BiTElement;
+typedef struct BiTNode *PtrBiTNode;
+typedef struct BiTNode {
+    BiTElement data;
+    PtrBiTNode left;
+    PtrBiTNode right;
+} BiTNode;
+typedef struct BiTNode *BiTree;
+
+Status CreateBiTree(BiTree &tree);
+
+void PreOrderTraverse(BiTree tree, void (*visitor)(BiTElement));
+
+void InOrderTraverse(BiTree tree, void (*visitor)(BiTElement));
+
+void PostOrderTraverse(BiTree tree, void (*visitor)(BiTElement));
+
+void visitor(BiTElement data) {
+    cout << data << " ";
+}
+
+int main() {
+    BiTree tree;
+    CreateBiTree(tree);
+
+    cout << "Pre Order: ";
+    PreOrderTraverse(tree, visitor);
+    cout << endl;
+
+    cout << "In Order: ";
+    InOrderTraverse(tree, visitor);
+    cout << endl;
+
+    cout << "Post Order: ";
+    PostOrderTraverse(tree, visitor);
+    cout << endl;
+    return 0;
+}
 
 Status CreateBiTree(BiTree &tree) {
     char ch;
@@ -36,3 +78,4 @@ void PostOrderTraverse(BiTree tree, void (*visitor)(BiTElement)) {
     PostOrderTraverse(tree->right, visitor);
     visitor(tree->data);
 }
+
