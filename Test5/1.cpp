@@ -69,8 +69,8 @@ int binarySearch(int *array, int size, int n) {
     while (start != end) {
         int mid = (start + end) / 2;
         if (array[mid] == n) return mid;
-        if (array[mid] > n) end = mid;
-        else start = mid;
+        if (array[mid] > n) end = mid - 1;
+        else start = mid + 1;
     }
     return -1;
 }
@@ -79,8 +79,8 @@ int binaryRecursiveSearch(int *array, int start, int end, int n) {
     if (start == end) return -1;
     int mid = (start + end) / 2;
     if (array[mid] == n) return mid;
-    if (array[mid] > n) return binaryRecursiveSearch(array, start, mid, n);
-    else return binaryRecursiveSearch(array, mid, end, n);
+    if (array[mid] > n) return binaryRecursiveSearch(array, start, mid - 1, n);
+    else return binaryRecursiveSearch(array, mid + 1, end, n);
 }
 
 int compare(const void *o1, const void *o2) {
