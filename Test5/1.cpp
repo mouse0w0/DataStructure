@@ -19,7 +19,7 @@ int linearSearch(int *array, int size, int n);
 
 int binarySearch(int *array, int size, int n);
 
-int binaryRecursiveSearch(int *array, int start, int end, int n);
+int binaryRecursiveSearch(int *array, int size, int n);
 
 int compare(const void *o1, const void *o2);
 
@@ -35,7 +35,7 @@ int main() {
     printf("Linear search result: %d\n", linearSearch(array, MAX, n));
     qsort(array, MAX, sizeof(int), compare);
     printf("Binary search result: %d\n", binarySearch(array, MAX, n));
-    printf("Binary recursive search result: %d\n", binaryRecursiveSearch(array, 0, MAX, n));
+    printf("Binary recursive search result: %d\n", binaryRecursiveSearch(array, MAX, n));
     return 0;
 }
 
@@ -81,6 +81,10 @@ int binaryRecursiveSearch(int *array, int start, int end, int n) {
     if (array[mid] == n) return mid;
     if (array[mid] > n) return binaryRecursiveSearch(array, start, mid - 1, n);
     else return binaryRecursiveSearch(array, mid + 1, end, n);
+}
+
+int binaryRecursiveSearch(int *array, int size, int n) {
+    return binaryRecursiveSearch(array, 0, size, n);
 }
 
 int compare(const void *o1, const void *o2) {
