@@ -68,7 +68,7 @@ void CreateHTree(HTree &tree) {
 }
 
 void CreateHCode(HTree tree, char *bits, int depth, char **result) {
-    if (tree->left == nullptr) {
+    if (tree->left == nullptr) { // 找到叶节点，保存当前编码
         char *code = (char *) malloc(sizeof(char) * (depth + 1));
         memcpy(code, bits, depth);
         code[depth] = '\0';
@@ -76,9 +76,9 @@ void CreateHCode(HTree tree, char *bits, int depth, char **result) {
         return;
     }
     bits[depth] = '0';
-    CreateHCode(tree->left, bits, depth + 1, result);
+    CreateHCode(tree->left, bits, depth + 1, result); // 访问左孩子
     bits[depth] = '1';
-    CreateHCode(tree->right, bits, depth + 1, result);
+    CreateHCode(tree->right, bits, depth + 1, result); // 访问右孩子
 }
 
 char **CreateHCode(HTree tree) {
@@ -92,7 +92,7 @@ char *Encode(char **code, char *s) {
     char *bits = (char *) malloc(sizeof(char) * SIZE);
     bits[0] = '\0';
     while (*s) {
-        strcat(bits, code[*s]);
+        strcat(bits, code[*s]); // 按字符获得编码，连接编码字符串
         s++;
     }
     return bits;

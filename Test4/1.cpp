@@ -6,13 +6,12 @@
 using namespace std;
 
 typedef char BiTElement;
-typedef struct BiTNode *PtrBiTNode;
+typedef struct BiTNode *BiTree;
 typedef struct BiTNode {
     BiTElement data;
-    PtrBiTNode left;
-    PtrBiTNode right;
+    BiTree left;
+    BiTree right;
 } BiTNode;
-typedef struct BiTNode *BiTree;
 
 Status CreateBiTree(BiTree &tree);
 
