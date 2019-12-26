@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <ctime>
 
-#define MAX 10
+#define MAX 10000
 
 using namespace std;
 
@@ -30,16 +30,16 @@ int main() {
 }
 
 void GenerateRandomData() {
-    FILE *file = fopen("test6-1.txt", "w");
+    FILE *file = fopen("test6-2.txt", "w");
     srand(time(NULL));
     for (int i = 0; i < MAX; i++) {
-        fprintf(file, "%d\n", rand() % 100);
+        fprintf(file, "%d\n", rand() % 100000);
     }
     fclose(file);
 }
 
 void Initialize() {
-    FILE *file = fopen("test6-1.txt", "r");
+    FILE *file = fopen("test6-2.txt", "r");
     for (int i = 0; i < MAX; i++) {
         fscanf(file, "%d", &array[i]);
     }
