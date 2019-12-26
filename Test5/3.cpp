@@ -100,7 +100,7 @@ void Put(LinearMap map, Element *element) {
     for (int i = 1;; ++i) {
         int j = i / 2;
         int next = hash + j * j * (i & 1 ? -1 : 1); // 二次散列探查法
-        if (next < 0 || next >= MAX) continue;
+        if (next < 0 || next >= MAX) return; // 越界，结束循环
         if (map[next] == nullptr) {
             map[next] = element;
             return;
@@ -127,7 +127,7 @@ Element *Get(LinearMap map, char *phone) {
     for (int i = 1;; ++i) {
         int j = i / 2;
         int next = hash + j * j * (i & 1 ? -1 : 1); // 二次散列探查法
-        if (next < 0 || next >= MAX) continue;
+        if (next < 0 || next >= MAX) return nullptr; // 越界，结束循环
         if (map[next] != nullptr && strcmp(map[next]->phone, phone) == 0) {
             return map[next];
         }
