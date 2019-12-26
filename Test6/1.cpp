@@ -83,8 +83,7 @@ void SelectSort(int *array, int size) {
 
 void InsertSort(int *array, int size) {
     for (int i = 1; i < size; ++i) {
-        int t = array[i];
-        int j;
+        int t = array[i], j; // t为检查哨
         for (j = i - 1; j >= 0 && array[j] > t; j--) array[j + 1] = array[j]; // 查找一个比t小的值，并将比t大的值向后移动
         array[j + 1] = t;
     }
