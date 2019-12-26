@@ -13,19 +13,18 @@ using namespace std;
 #define MAX 10
 
 typedef int BiTElement;
-typedef struct BiTNode *PtrBiTNode;
+typedef struct BiTNode *BiTree;
 typedef struct BiTNode {
     BiTElement data;
-    PtrBiTNode left;
-    PtrBiTNode right;
+    BiTree left;
+    BiTree right;
 } BiTNode;
-typedef struct BiTNode *BiTree;
 
 void GenerateRandomData();
 
 void Create(BiTree &tree);
 
-PtrBiTNode Find(BiTree tree, int value);
+BiTree Find(BiTree tree, int value);
 
 Status Insert(BiTree &tree, int value);
 
@@ -67,7 +66,7 @@ void Create(BiTree &tree) {
     fclose(file);
 }
 
-PtrBiTNode Find(BiTree tree, int value) {
+BiTree Find(BiTree tree, int value) {
     if (tree == nullptr) return nullptr; // 未找到节点
     if (tree->data == value) return tree; // 找到节点
     if (tree->data > value) return Find(tree->left, value); // 节点值大于目标值，在左孩子中查找
@@ -76,7 +75,7 @@ PtrBiTNode Find(BiTree tree, int value) {
 
 Status Insert(BiTree &tree, int value) {
     if (tree == nullptr) {
-        tree = (PtrBiTNode) malloc(sizeof(BiTNode));
+        tree = (BiTree) malloc(sizeof(BiTNode));
         tree->data = value;
         tree->left = nullptr;
         tree->right = nullptr;
