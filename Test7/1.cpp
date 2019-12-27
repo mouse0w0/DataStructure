@@ -68,13 +68,16 @@ void bfs() {
     for (int i = 0; i < graph.vexnum; ++i) {
         if (visited[i]) continue; // 节点已访问，进入下一次迭代
 
+        visited[i] = 1; // 访问顶点
         queue[++queueTail] = i; // 将节点添加到队列中
         while (queueHead < queueTail) { // 遍历队列
             int vex = queue[++queueHead];
-            visited[vex] = 1; // 访问顶点
             cout << vex << " ";
             for (int j = 0; j < graph.vexnum; ++j) { // 将当前顶点的邻接顶点添加到队列中
-                if (graph.arcs[vex][j] && !visited[j]) queue[++queueTail] = j;
+                if (graph.arcs[vex][j] && !visited[j]) {
+                    visited[j] = 1; // 访问顶点
+                    queue[++queueTail] = j;
+                }
             }
         }
     }
